@@ -1,0 +1,231 @@
+:root {
+	--canvas-width: 0px;
+	--canvas-height: 0px;
+	--canvas-subwidth: 0px;
+	--canvas-clearheight: 0px;
+}
+
+* {
+	margin: 0;
+}
+
+html, body {
+	height: 100%;
+	width: 100%;
+	background-color: #1f1f1f;
+}
+
+canvas {
+	image-rendering: pixelated;
+	image-rendering: crisp-edges;
+}
+
+div#div-game-wrapper {
+	height: 100vh;
+	width: 100vw;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+div.div-player-field-wrapper {
+	width: calc(2 * var(--canvas-subwidth) + var(--canvas-width));
+	height: var(--canvas-height);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+div.div-player-field-left {
+	width: var(--canvas-subwidth);
+	height: calc(var(--canvas-height) - var(--canvas-clearheight));
+	margin: 1rem;
+
+	display: flex;
+	flex-direction: column;
+}
+
+div.div-player-field-center {
+	position: relative;
+	width: var(--canvas-width);
+	height: calc(var(--canvas-height) - var(--canvas-clearheight));
+	margin: 1rem;
+	margin-top: 1.5rem;
+	border-left: 0.5rem solid #3f3f3f;
+	border-bottom: 0.5rem solid #3f3f3f;
+	border-right: 0.5rem solid #3f3f3f;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+}
+
+/* div.div-player-field-center::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+	padding: 0.5rem;
+	width: var(--canvas-width);
+    height: var(--canvas-height);
+	border-left: 0.5rem solid #3f3f3f;
+	border-bottom: 0.5rem solid #3f3f3f;
+	border-right: 0.5rem solid #3f3f3f;
+    border-top-width: 0;
+	display: inline-block;
+} */
+
+div.div-player-field-right {
+	width: var(--canvas-subwidth);
+	height: calc(var(--canvas-height) - var(--canvas-clearheight));
+	margin: 0.5rem;
+}
+
+div.div-player-hold {
+	display: flex;
+	flex-direction: column;
+}
+
+div.div-stat {
+	margin-top: 1.25rem;
+}
+
+div.div-stats {
+	display: flex;
+	flex-direction: column;
+}
+
+div.div-comments {
+	margin-top: 1rem;
+	flex-grow: 1;
+}
+
+p#p-instruction {
+	position: fixed;
+	bottom: 2.5rem;
+	left: 1rem;
+
+	color: #ffffff;
+	font-family: 'Chakra Petch', sans-serif;
+	font-size: 1.25rem;
+	font-weight: 300;
+	line-height: 1.25rem;
+	text-align: center;
+}
+
+p#p-signature {
+	position: fixed;
+	bottom: 1rem;
+	left: 1rem;
+
+	color: #ffffff;
+	font-family: 'Chakra Petch', sans-serif;
+	font-size: 1.25rem;
+	font-weight: 300;
+	line-height: 1.25rem;
+	text-align: center;
+}
+
+p.p-section-header {
+	height: 1.25rem;
+
+	padding: 0.5rem;
+
+	background-color: #3f3f3f;
+	color: #ffffff;
+	font-family: 'Chakra Petch', sans-serif;
+	font-size: 1.25rem;
+	font-weight: 300;
+	line-height: 1.25rem;
+}
+
+p.p-stat-header {
+	height: 1rem;
+
+	padding: 0.125rem 0;
+
+	color: #ffffff;
+	font-family: 'Chakra Petch', sans-serif;
+	font-size: 1rem;
+	font-weight: 300;
+	line-height: 1rem;
+	text-align: right;
+}
+
+p.p-stat-content {
+	height: 1.75rem;
+
+	padding: 0.125rem 0;
+
+	color: #ffffff;
+	font-family: 'Chakra Petch', sans-serif;
+	font-size: 1.75rem;
+	font-weight: 500;
+	line-height: 1.75rem;
+	text-align: right;
+}
+
+p.p-comment-primary {
+	height: 1.75rem;
+
+	padding: 0.125rem 0;
+
+	color: #ffffff;
+	font-family: 'Chakra Petch', sans-serif;
+	font-size: 1.75rem;
+	font-weight: 500;
+	line-height: 1.75rem;
+	text-align: right;
+
+	animation-duration: 2000ms;
+	animation-fill-mode: both;
+}
+
+/* p.p-comment-primary[data-state="idle"] {
+	animation: none;
+}
+
+p.p-comment-primary[data-state="active"] {
+	animation: comment-text 2000ms both;
+} */
+
+p.p-comment-secondary {
+	height: 1.25rem;
+
+	padding: 0.125rem 0;
+
+	color: #ffffff;
+	font-family: 'Chakra Petch', sans-serif;
+	font-size: 1.25rem;
+	font-weight: 500;
+	line-height: 1.25rem;
+	text-align: right;
+
+	animation-duration: 2000ms;
+	animation-fill-mode: both;
+}
+
+/* p.p-comment-secondary[data-state="idle"] {
+	animation: none;
+}
+
+p.p-comment-secondary[data-state="active"] {
+	animation: comment-text 2000ms both;
+} */
+
+@keyframes comment-text {
+	0% {
+		opacity: 1;
+		letter-spacing: normal;
+	}
+
+	75% {
+		opacity: 1;
+	}
+
+	100% {
+		opacity: 0;
+		letter-spacing: 0.2em;
+	}
+}
